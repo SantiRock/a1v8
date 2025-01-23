@@ -12,6 +12,13 @@ bodyElement.addEventListener("mousemove", (e) => {
   mouseX = (e.clientX - rect.left) / rect.width;
 })
 
+bodyElement.addEventListener("touchmove", (e) => {
+  const rect = bodyElement.getBoundingClientRect() // object
+  mouseX = (e.clientX - rect.left) / rect.width;
+});
+
+
+
 // Geometry
 
 const vertices = [
