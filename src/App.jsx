@@ -1,12 +1,32 @@
-import { useState } from 'react'
-import './App.css'
+import { useEffect } from 'react';
+import './App.css';
+//import './glsl/mouse.js'
 
 function App() {
-  const [count, setCount] = useState(0)
+
+
+  const cargarScript = (mouseScript) => {
+    const script = document.createElement("script");
+    script.src = mouseScript;
+    script.type = "module";
+    script.async = true;
+    document.body.appendChild(script);
+
+  }
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      cargarScript('./glsl/mouse.js');
+    }, 100)
+  }, []);
+
 
   return (
     <>
-      <h1>A1V8</h1>
+
+      <p className='commingsoon'>Comming soon...</p>
+
+      <canvas id="my_canvas"></canvas>
 
     </>
   )
