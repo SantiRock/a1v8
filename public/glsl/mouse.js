@@ -7,12 +7,12 @@ const bodyElement = document.body;
 const gl = canvas.getContext('webgl');
 var mouseX = 0;
 
-bodyElement.addEventListener("mousemove", (e) => {
+/*bodyElement.addEventListener("mousemove", (e) => {
   const rect = bodyElement.getBoundingClientRect() // object
   mouseX = (e.clientX - rect.left) / rect.width;
-})
+})*/
 
-bodyElement.addEventListener("touchmove", (e) => {
+bodyElement.addEventListener("pointermove", (e) => {
   const rect = bodyElement.getBoundingClientRect() // object
   mouseX = (e.clientX - rect.left) / rect.width;
 });
