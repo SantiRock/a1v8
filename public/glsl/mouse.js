@@ -12,11 +12,24 @@ bodyElement.addEventListener("mousemove", (e) => {
   mouseX = (e.clientX - rect.left) / rect.width;
 })
 
+let isTouching = false
+
+bodyElement.addEventListener('touchstar', () => {
+  isTouching = true
+})
+
+
 bodyElement.addEventListener("touchmove", (e) => {
-  e.preventDefault();
-  const rect = bodyElement.getBoundingClientRect() // object
-  mouseX = (e.clientX - rect.left) / rect.width;
-}, { passive: false });
+  if (isTouching) {
+    e.preventDefault();
+    const rect = bodyElement.getBoundingClientRect() // object
+    mouseX = (e.clientX - rect.left) / rect.width;
+  }
+});
+
+bodyElement.addEventListener("touchend", () => {
+  isTouching = false;
+})
 
 
 // Geometry
