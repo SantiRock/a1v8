@@ -25,6 +25,7 @@ function App() {
     <>
 
       <p className='commingsoon'>Comming soon...</p>
+      <a href='https://santirock.github.io/webgl_drawing_modes/' class="drawingmodes" target='_blank'>👾 WebGL Drawing Modes</a>
 
       <canvas id="my_canvas"></canvas>
 

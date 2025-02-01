@@ -3,8 +3,9 @@
 const canvas = document.getElementById('my_canvas');
 const bodyElement = document.body;
 
-
 const gl = canvas.getContext('webgl');
+
+// Mouse
 var mouseX = 0;
 
 bodyElement.addEventListener("mousemove", (e) => {
@@ -14,17 +15,20 @@ bodyElement.addEventListener("mousemove", (e) => {
 
 let isTouching = false
 
-bodyElement.addEventListener('touchstar', () => {
+bodyElement.addEventListener('touchstar', (e) => {
   isTouching = true
+  const rect = bodyElement.getBoundingClientRect() // object
+  mouseX = (e.clientX - rect.left) / rect.width;
+  e.preventDefault()
+  return false
 })
 
 
 bodyElement.addEventListener("touchmove", (e) => {
-  if (isTouching) {
-    e.preventDefault();
-    const rect = bodyElement.getBoundingClientRect() // object
-    mouseX = (e.clientX - rect.left) / rect.width;
-  }
+  if (!isTouching) return false
+  const rect = bodyElement.getBoundingClientRect() // object
+  mouseX = (e.clientX - rect.left) / rect.width;
+  e.preventDefault();
 });
 
 bodyElement.addEventListener("touchend", () => {

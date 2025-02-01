@@ -30,3 +30,11 @@ a {
   color: rgb(160, 205, 244);
   font-style: normal;
 }
+
+.drawingmodes {
+  color: rgb(48, 46, 98);
+}
+
+.drawingmodes:hover {
+  background-color: rgb(118, 202, 241);
+}
