@@ -5,8 +5,8 @@ import { OBJLoader } from 'three/examples/jsm/Addons.js'
 /**
  * Base
  */
-
 const canvas = document.querySelector('canvas.webgl')
+const drag = document.getElementById('drag')
 
 const scene = new THREE.Scene()
 
@@ -15,7 +15,6 @@ const scene = new THREE.Scene()
 */
 
 // Modelo 3D
-
 let skullObj
 let skullObj2
 
@@ -30,11 +29,9 @@ objLoader.load('./models/skull.obj', (obj)=> {
                 wireframe: true,
                 transparent: true,
                 opacity: 0.9
-
             })
 
             child.position.y = 0.5
-
         }
     })
 
@@ -57,24 +54,24 @@ objLoader.load('./models/skull.obj', (obj)=> {
             child.scale.set(147, 140., 147.)
             child.position.y = 1.5
             child.rotation.x = -5
-
         }
     })
 
     skullObj2 = obj
 
     scene.add(obj)
+
+    window.dispatchEvent(new CustomEvent('modeloCargado', {detail: obj}))
 })
 
-/**
- * Lights
- */
-
+window.addEventListener('modeloCargado', (e) => {
+    console.log(e.detail);
+    drag.textContent = "Drag it!"
+})
 
 /**
  * Sizes
  */
-
 const sizes = {
     width: window.innerWidth,
     height: window.innerHeight
@@ -120,17 +117,8 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
  * Animate
  */
 
-let previousTime = 0
-
-const clock = new THREE.Clock()
 
 const tick = () => {
-
-    const elapsedTime = clock.getElapsedTime()
-    //const deltaTime = elapsedTime - previousTime
-    //previousTime = elapsedTime
-
-    //console.log(elapsedTime)
 
     controls.update()
 
@@ -142,11 +130,7 @@ const tick = () => {
         skullObj2.rotation.x += 0.0005
         skullObj2.rotation.y -= 0.0004
         skullObj2.rotation.z -= 0.0003
-    
-
     }
-
-  
 
     renderer.render(scene, camera)
 
