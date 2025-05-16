@@ -1,4 +1,4 @@
-# Acerca de
+# A1V8
 A1V8 es un proyecto artístico que investiga la imagen interactiva en tiempo real mediante programación gráfica. Nos interesa crear experiencias estéticas desde el código, explorando el potencial expresivo de la tecnología como lenguaje visual. Buscamos promover la producción de proyectos web y/o no-web que integren propuestas visuales interactivas.
 
 
