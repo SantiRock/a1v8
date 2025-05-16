@@ -20,6 +20,4 @@ export default {
         restart({ restart: [ '../static/**', ] }), // Restart server on static file change
         glsl()
     ],
-    base:"/aiv8_test/"
-
 }
